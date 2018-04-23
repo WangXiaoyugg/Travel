@@ -58,36 +58,37 @@ export default {
 .wrapper >>> .swiper-container
   padding-bottom: 50%
   height: 0
-
-.grid
-  position: relative
-  overflow: hidden
-  float: left
-  width 25%
-  height:0
-  padding-bottom: 25%
-  .imgCt
+.wrapper
+  margin-top: .1rem
+  .grid
+    position: relative
     overflow: hidden
-    position: absolute
-    top: 0
-    left: 0
-    right: 0
-    box-sizing: border-box
-    padding: .1rem
-    bottom: .44rem
-    .icon-img
-      height: 100%
-      display: block
-      margin: 0 auto
-  .img-desc
+    float: left
+    width 25%
+    height:0
+    padding-bottom: 25%
+    .imgCt
+      overflow: hidden
       position: absolute
-      bottom:0
-      left:0
-      right:0
-      text-align: center
-      line-height: .44rem
-      height: .44rem
-      color: $darkTextColor
-      ellipsis()
+      top: 0
+      left: 0
+      right: 0
+      box-sizing: border-box
+      padding: .1rem
+      bottom: .44rem
+      .icon-img
+        height: 100%
+        display: block
+        margin: 0 auto
+    .img-desc
+        position: absolute
+        bottom:0
+        left:0
+        right:0
+        text-align: center
+        line-height: .44rem
+        height: .44rem
+        color: $darkTextColor
+        ellipsis()
 
 </style>
