@@ -1,14 +1,14 @@
 <template>
   <div class="wrapper">
-    <swiper >
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div class="grid" v-for="item of page" :key="item.id">
           <div class="imgCt">
             <img class="icon-img"
-                 :src="item.url"
+                 :src="item.imgUrl"
             alt="">
           </div>
-          <p class="img-desc">{{item.text}}</p>
+          <p class="img-desc">{{item.desc}}</p>
         </div>
       </swiper-slide>
     </swiper>
@@ -20,25 +20,20 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      iconList:[
-        {id:'001', url:"http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png", text:'景点门票'},
-        {id:'002', url:"http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png", text:'必游榜单'},
-        {id:'003', url:'http://img1.qunarzz.com/piao/fusion/1803/bd/9f7b9b2b60c1502.png', text:'踏青赏花'},
-        {id:'004', url:'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png', text:'一日游'},
-        {id:'005', url:"http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png", text:'景点门票'},
-        {id:'006', url:"http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png", text:'必游榜单'},
-        {id:'007', url:'http://img1.qunarzz.com/piao/fusion/1803/bd/9f7b9b2b60c1502.png', text:'踏青赏花'},
-        {id:'008', url:'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png', text:'一日游'},
-        {id:'009', url:'http://img1.qunarzz.com/piao/fusion/1803/dd/cce1231836f10a02.png', text:'周边游'},
-      ],
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {
     pages () {
       const pages = []
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         let page = Math.floor(index / 8)
         if(!pages[page]){
           pages[page] = []

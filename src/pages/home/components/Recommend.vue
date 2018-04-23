@@ -2,9 +2,9 @@
   <div>
     <div class="recommend-title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
           <img alt="logo"
-               :src="item.url"
+               :src="item.imgUrl"
                class="item-img" >
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -19,16 +19,8 @@
 <script>
 export default {
   name:'HomeRecommend',
-  data () {
-    return {
-      recommendList: [
-        {id:'01', url:'http://img1.qunarzz.com/sight/p0/1803/7b/7b023b9728f0834fa3.img.jpg_200x200_5fddc1d8.jpg', title:'世界花卉大观园',desc:'浪漫花海，完美呈现，无奇不有'},
-        {id:'02', url:'http://img1.qunarzz.com/sight/p0/1803/7b/7b023b9728f0834fa3.img.jpg_200x200_5fddc1d8.jpg', title:'世界花卉大观园',desc:'浪漫花海，完美呈现，无奇不有'},
-        {id:'03', url:'http://img1.qunarzz.com/sight/p0/1803/7b/7b023b9728f0834fa3.img.jpg_200x200_5fddc1d8.jpg', title:'世界花卉大观园',desc:'浪漫花海，完美呈现，无奇不有'},
-        {id:'04', url:'http://img1.qunarzz.com/sight/p0/1803/7b/7b023b9728f0834fa3.img.jpg_200x200_5fddc1d8.jpg', title:'世界花卉大观园',desc:'浪漫花海，完美呈现，无奇不有'},
-
-      ]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
