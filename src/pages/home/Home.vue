@@ -46,7 +46,6 @@ export default {
            })
     },
     getHomeInfoSuccess (res) {
-      console.log(res)
       res = res.data
       if(res.ret && res.data) {
         this.city = res.data.city
