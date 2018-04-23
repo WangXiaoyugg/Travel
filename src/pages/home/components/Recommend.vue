@@ -45,8 +45,8 @@ export default {
   height: 1.9rem
   overflow: hidden
   .item-img
-    width: 1.7rem
-    height: 1.7rem
+    width: 1.6rem
+    height: 1.6rem
     padding: .1rem
   .item-info
     flex: 1
