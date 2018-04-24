@@ -34,20 +34,20 @@ export default {
       weekendList: [],
     }
   },
-  mounted() {
+  mounted () {
     this.getHomeInfo()
   },
   methods: {
     getHomeInfo () {
       axios.get('/api/index.json')
-           .then(this.getHomeInfoSuccess)
-           .catch(e => {
-             console.log(e)
-           })
+        .then(this.getHomeInfoSuccess)
+        .catch(e => {
+          console.log(e)
+        })
     },
     getHomeInfoSuccess (res) {
       res = res.data
-      if(res.ret && res.data) {
+      if (res.ret && res.data) {
         this.city = res.data.city
         this.swiperList = res.data.swiperList
         this.iconList = res.data.iconList

@@ -45,16 +45,15 @@ export default {
     letter: String,
   },
   mounted () {
-     this.scroll = new BScroll(this.$refs.wrapper)
+    this.scroll = new BScroll(this.$refs.wrapper)
   },
   watch: {
     letter () {
-      if(this.letter) {
+      if (this.letter) {
         console.log(this.letter)
         const elment = this.$refs[this.letter][0]
         this.scroll.scrollToElement(elment, 300)
       }
-
     }
   }
 }

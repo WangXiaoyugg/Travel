@@ -50,7 +50,7 @@ export default {
     },
     getCitySuccess (res) {
       res = res.data
-      if(res.ret && res.data) {
+      if (res.ret && res.data) {
         this.hotCities = res.data.hotCities
         this.cities = res.data.cities
       }
