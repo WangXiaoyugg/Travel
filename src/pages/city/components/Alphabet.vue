@@ -19,7 +19,9 @@ export default {
   },
   data () {
     return {
-      touchStatus: false
+      touchStatus: false,
+      startY: 0,
+      timer: null,
     }
   },
   computed: {
@@ -31,6 +33,9 @@ export default {
       return letters
     }
   },
+  updated () {
+    this.startY = this.$refs['A'][0].offsetTop
+  },
   methods: {
     handleLetterClick (e) {
       const letter = e.target.innerText
@@ -40,15 +45,23 @@ export default {
       this.touchStatus = true
     },
     handleTouchMove (e) {
-      // 字母A到 顶部的距离，不包括 绿色头部
-      const startY = this.$refs['A'][0].offsetTop
-      const headerHeight = 79
-      const letterHeight = 20
-      // 手指触摸滚动时 距离屏幕顶部的距离， 减去header高度，即列表滚动的距离;
-      const touchY = e.touches[0].clientY - headerHeight
-      // （滚动距离 - 起始距离） / 字母高度 =  滚动字母的索引
-      const index = Math.floor((touchY - startY) / letterHeight)
-      this.$emit('change', this.letters[index])
+      if(this.timer) {
+        clearTimeout(this.timer)
+      }
+
+      this.timer = setTimeout(() => {
+        // 字母A到 顶部的距离，不包括 绿色头部
+        const headerHeight = 79
+        const letterHeight = 20
+        // 手指触摸滚动时 距离屏幕顶部的距离， 减去header高度，即列表滚动的距离;
+        const touchY = e.touches[0].clientY - headerHeight
+        // （滚动距离 - 起始距离） / 字母高度 =  滚动字母的索引
+        const index = Math.floor((touchY - this.startY) / letterHeight)
+        if( index >= 0 && index < this.letters.length) {
+          this.$emit('change', this.letters[index])
+        }
+      }, 16)
+
     },
     handleTouchEnd () {
       this.touchStatus = false
