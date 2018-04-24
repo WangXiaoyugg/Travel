@@ -45,7 +45,7 @@ export default {
       this.touchStatus = true
     },
     handleTouchMove (e) {
-      if(this.timer) {
+      if (this.timer) {
         clearTimeout(this.timer)
       }
 
@@ -57,11 +57,10 @@ export default {
         const touchY = e.touches[0].clientY - headerHeight
         // （滚动距离 - 起始距离） / 字母高度 =  滚动字母的索引
         const index = Math.floor((touchY - this.startY) / letterHeight)
-        if( index >= 0 && index < this.letters.length) {
+        if (index >= 0 && index < this.letters.length) {
           this.$emit('change', this.letters[index])
         }
       }, 16)
-
     },
     handleTouchEnd () {
       this.touchStatus = false
