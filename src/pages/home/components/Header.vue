@@ -25,7 +25,6 @@ export default {
   computed: {
     ...mapState(['city']),
     // ...mapGetters(['doubleCity']),
-
   }
 }
 </script>
