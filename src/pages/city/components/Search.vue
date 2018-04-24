@@ -10,7 +10,8 @@
       <ul>
         <li class="search-item border-bottom"
             v-for="item of list"
-            :key="item.id">
+            :key="item.id"
+            @click="handleClickCity(item.name)">
             {{item.name}}
         </li>
         <li class="search-item border-bottom"
@@ -66,6 +67,12 @@ export default {
         }
         this.list = result
       }, 100)
+    }
+  },
+  methods:  {
+    handleClickCity (city) {
+      this.$store.dispatch('changeCity', city)
+      this.$router.push('/')
     }
   }
 }
