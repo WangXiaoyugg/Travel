@@ -1,8 +1,13 @@
 <template>
   <div class="list">
     <div class="item"
-         v-for="(item,key) of cities"
-         :key="key">{{key}}</div>
+         v-for="(item, index) of letters"
+         :key="item"
+         :ref="item"
+         @click="handleLetterClick"
+         @touchstart="handleTouchStart"
+         @touchmove="handleTouchMove"
+         @touchend="handleTouchEnd">{{item}}</div>
   </div>
 </template>
 
@@ -11,6 +16,44 @@ export default {
   name: 'Alphabet',
   props: {
     cities: Object
+  },
+  data () {
+    return {
+      touchStatus: false
+    }
+  },
+  computed: {
+    letters () {
+      const letters = []
+      for(let letter in this.cities) {
+        letters.push(letter)
+      }
+      return letters
+    }
+  },
+  methods: {
+    handleLetterClick (e){
+      const letter = e.target.innerText
+      this.$emit('change', letter)
+    },
+    handleTouchStart () {
+      this.touchStatus = true
+    },
+    handleTouchMove (e) {
+      // 字母A到 顶部的距离，不包括 绿色头部
+      const startY = this.$refs['A'][0].offsetTop
+      const headerHeight = 79;
+      const letterHeight = 20
+      // 手指触摸滚动时 距离屏幕顶部的距离， 减去header高度，即列表滚动的距离;
+      const touchY = e.touches[0].clientY - headerHeight;
+      // （滚动距离 - 起始距离） / 字母高度 =  滚动字母的索引
+      const index = Math.floor((touchY - startY) / letterHeight);
+      this.$emit('change', this.letters[index]);
+
+    },
+    handleTouchEnd () {
+      this.touchStatus = false
+    }
   }
 }
 </script>
