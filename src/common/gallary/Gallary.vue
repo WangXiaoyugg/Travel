@@ -1,5 +1,5 @@
 <template>
-  <div class="container" 
+  <div class="container"
        @click="handleGallaryClick">
     <div class="wrapper">
       <swiper :options="swiperOptions">
@@ -67,5 +67,5 @@ export default {
       width: 100%
     .swiper-pagination
       color: #fff
-      bottom: -3.6rem
+      bottom: -1rem
 </style>
