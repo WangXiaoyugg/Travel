@@ -17,6 +17,7 @@
       v-show="showGallary"
       @close="handleGallaryClose"
     ></common-gallary>
+
   </div>
 
 </template>
@@ -35,7 +36,7 @@ export default {
     }
   },
   components: {
-    CommonGallary
+    CommonGallary,
   },
   methods: {
     handleClickBanner () {
