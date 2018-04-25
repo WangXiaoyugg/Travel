@@ -72,6 +72,7 @@ export default {
     height:.8rem
     text-align:center
 .header-fixed
+  z-index: 2
   overflow: hidden
   height: $headerHeight
   line-height: $headerHeight
