@@ -49,7 +49,6 @@ export default {
     getDetailInfoSuccess (res) {
       res = res.data
       if (res.data && res.ret) {
-        console.log(res.data);
         this.sightName = res.data.sightName
         this.bannerImg = res.data.bannerImg
         this.gallaryImgs = res.data.gallaryImgs

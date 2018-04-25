@@ -28,5 +28,7 @@ module.exports = {
     'comma-dangle': 'off',
     'no-multiple-empty-lines': 'off',
     'key-spacing':'off',
+    'indent': 'off',
+    'no-unused-vars': 'off'
   }
 }
