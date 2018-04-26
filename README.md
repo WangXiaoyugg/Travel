@@ -20,7 +20,7 @@ npm run build
 npm run build --report
 ```
 - 打开chrome 浏览器，请在控制台切换成手机模式预览效果
-
+- 小项目采用迭代式开发，开发代码从分支查看独立功能代码
 ### 项目使用技术栈
 - vue + vue-router + vuex + vue-cli + axios + stylus
 - 第三方包 vue-awesome-swiper, better-scroll, babel-polyfill, fast-click
